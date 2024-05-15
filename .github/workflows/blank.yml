@@ -3,9 +3,8 @@ name: Deploy application
 on:
   push:
     branches:
-      - main
-    tags:        
-      - '*' 
+      - main      
+    tags: [ 'v*.*.*' ] 
 
 
 jobs:
