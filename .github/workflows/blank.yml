@@ -17,4 +17,9 @@ jobs:
         run: |
           echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
           echo "Tag name from github.ref_name: ${{  github.ref_name }}"
-      - run: ${{ startsWith(github.ref_name, 'v') }}
+      - name: tagged
+        if: ${{ startsWith(github.ref_name, 'v') }}
+        run: echo "TAGGED"
+      - name: not tagged
+        if: ${{ !startsWith(github.ref_name, 'v') }}
+        run: echo "NOT TAGGED"
